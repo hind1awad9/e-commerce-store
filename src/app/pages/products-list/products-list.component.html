@@ -1,0 +1,194 @@
+<div class="m-3" [dir]="language == 'ar' ? 'rtl' : 'ltr'">
+  <div class="mb-4" style="text-align: right">
+    <button mat-fab extended color="primary" (click)="openCreateDialog(create)">
+      <mat-icon>add</mat-icon>
+      {{ "PRODUCT.ADD" | translate }}
+    </button>
+  </div>
+
+  <div class="example-container mat-elevation-z8">
+    <div class="example-table-container">
+      <table
+        mat-table
+        [dataSource]="products"
+        class="example-table"
+        matSort
+        matSortActive="created"
+        matSortDisableClear
+        matSortDirection="desc"
+      >
+        <!-- Id Column -->
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef>#</th>
+          <td mat-cell *matCellDef="let row">{{ row.id }}</td>
+        </ng-container>
+
+        <!-- Title Column -->
+        <ng-container matColumnDef="title">
+          <th mat-header-cell *matHeaderCellDef>
+            {{ "PRODUCT.TITLE" | translate }}
+          </th>
+          <td mat-cell *matCellDef="let row">{{ row.title }}</td>
+        </ng-container>
+
+        <!-- Price Column -->
+        <ng-container matColumnDef="price">
+          <th mat-header-cell *matHeaderCellDef>
+            {{ "PRODUCT.PRICE" | translate }}
+          </th>
+          <td mat-cell *matCellDef="let row">{{ row.price }}</td>
+        </ng-container>
+
+        <!-- Category Column -->
+        <ng-container matColumnDef="category">
+          <th mat-header-cell *matHeaderCellDef>
+            {{ "PRODUCT.CATEGORY" | translate }}
+          </th>
+          <td mat-cell *matCellDef="let row">{{ row.category }}</td>
+        </ng-container>
+
+        <!-- Description Column -->
+        <ng-container matColumnDef="description">
+          <th mat-header-cell *matHeaderCellDef>
+            {{ "PRODUCT.DESCRIPTION" | translate }}
+          </th>
+          <td mat-cell *matCellDef="let row">{{ row.description }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="edit">
+          <th mat-header-cell *matHeaderCellDef>
+            {{ "PRODUCT.EDIT_PRODUCT" | translate }}
+          </th>
+          <td mat-cell *matCellDef="let element">
+            <button
+              mat-icon-button
+              matTooltip="Click to Edit"
+              class="iconbutton"
+              color="primary"
+              (click)="openDialog(edit, element)"
+            >
+              <mat-icon>edit</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="delete">
+          <th mat-header-cell *matHeaderCellDef>
+            {{ "PRODUCT.DELETE_PRODUCT" | translate }}
+          </th>
+          <td mat-cell *matCellDef="let element">
+            <button
+              mat-icon-button
+              matTooltip="Click to Delete"
+              class="iconbutton"
+              (click)="openDialog(delete, element)"
+              color="warn"
+            >
+              <mat-icon>delete</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+    </div>
+
+    <mat-paginator
+      [length]="resultsLength"
+      [pageSize]="10"
+      aria-label="Select page of GitHub search results"
+    ></mat-paginator>
+  </div>
+</div>
+
+<ng-template #create>
+  <form [formGroup]="form">
+    <div mat-dialog-title>{{ "PRODUCT.ADD" | translate }}</div>
+    <mat-dialog-content>
+      <label for="title">{{ "PRODUCT.TITLE" | translate }}</label>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Title"
+        formControlName="title"
+      />
+      <label for="price">{{ "PRODUCT.PRICE" | translate }}</label>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Price"
+        formControlName="price"
+      />
+      <label for="category">{{ "PRODUCT.CATEGORY" | translate }}</label>
+      <select
+        class="form-select"
+        formControlName="category"
+        aria-label="Default select example"
+      >
+        <option selected>Open this select menu</option>
+        <option *ngFor="let category of categories">{{ category }}</option>
+      </select>
+      <label for="description">{{ "PRODUCT.DESCRIPTION" | translate }}</label>
+      <textarea
+        type="text"
+        rows="4"
+        class="form-control"
+        placeholder="Description"
+        formControlName="description"
+      ></textarea>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+      <button mat-raised-button color="primary" (click)="addProduct()">
+        {{ "PRODUCT.SAVE" | translate }}
+      </button>
+      <button mat-raised-button color="warn" (click)="close()">
+        {{ "PRODUCT.CLOSE" | translate }}
+      </button>
+    </mat-dialog-actions>
+  </form>
+</ng-template>
+
+<ng-template #edit>
+  <form [formGroup]="form">
+    <div mat-dialog-title>{{ "PRODUCT.EDIT_PRODUCT" | translate }}</div>
+    <mat-dialog-content>
+      <label for="title">{{ "PRODUCT.TITLE" | translate }}</label>
+      <input type="text" class="form-control" formControlName="title" />
+      <label for="price">{{ "PRODUCT.PRICE" | translate }}</label>
+      <input type="text" class="form-control" formControlName="price" />
+      <label for="category">{{ "PRODUCT.CATEGORY" | translate }}</label>
+      <input type="text" class="form-control" formControlName="category" />
+      <label for="description">{{ "PRODUCT.DESCRIPTION" | translate }}</label>
+      <textarea
+        rows="4"
+        type="text"
+        class="form-control"
+        formControlName="description"
+      >
+      </textarea>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+      <button mat-raised-button color="primary" (click)="editProduct()">
+        Save
+      </button>
+      <button mat-raised-button color="warn" (click)="close()">
+        {{ "PRODUCT.CLOSE" | translate }}
+      </button>
+    </mat-dialog-actions>
+  </form>
+</ng-template>
+
+<ng-template #delete>
+  <div mat-dialog-title>{{ "PRODUCT.DELETE_PRODUCT" | translate }}</div>
+  <mat-dialog-content>
+    Are you won't to delete this product?
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-raised-button color="primary" (click)="deleteProduct()">
+      Save
+    </button>
+    <button mat-raised-button color="warn" (click)="close()">
+      {{ "PRODUCT.CLOSE" | translate }}
+    </button>
+  </mat-dialog-actions>
+</ng-template>

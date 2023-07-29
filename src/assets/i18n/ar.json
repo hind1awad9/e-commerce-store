@@ -1,0 +1,32 @@
+{
+  "PRODUCT": {
+    "ADD": "إضافة منتج",
+    "DELETE_PRODUCT": "حذف منتج",
+    "EDIT_PRODUCT": "تعديل منتج",
+    "TITLE": "الاسم",
+    "PRICE": "السعر",
+    "CATEGORY": "الفئة",
+    "DESCRIPTION": "الوصف",
+    "SAVE": "حفظ",
+    "CLOSE": "إغلاق",
+    "ADD_SUCCESS": "تم إضافة المنتج بنجاح",
+    "EDIT_SUCCESS": "تم تعديل المنتج بنجاح",
+    "DELETE_SUCCESS": "تم حذف المنتج بنجاح",
+    "SUCCESS": "تم بنجاح",
+    "ERROR": "حدث خطأ"
+  },
+  "LOGIN": {
+    "TITLE": "تسجيل الدخول للمتجر",
+    "USERNAME": "إسم المستخدم",
+    "PASSWORD": "كلمة المرور",
+    "LOGIN": "تسجيل الدخول",
+    "VALIDATION": {
+      "USERNAME_REQUIRED": "إسم المستخدم مطلوب",
+      "PASSWORD_REQUIRED": "كلمة المرور مطلوبة"
+    }
+  },
+  "LAYOUT": {
+    "HEADER": "متجر إلكتروني",
+    "LOGOUT": "تسجيل الخروج"
+  }
+}

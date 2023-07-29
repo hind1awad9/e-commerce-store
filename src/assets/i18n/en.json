@@ -1,0 +1,32 @@
+{
+  "PRODUCT": {
+    "ADD": "Add product",
+    "DELETE_PRODUCT": "Delete product",
+    "EDIT_PRODUCT": "Edit product",
+    "TITLE": "Title",
+    "PRICE": "Price",
+    "CATEGORY": "Category",
+    "DESCRIPTION": "Description",
+    "SAVE": "Save",
+    "CLOSE": "Close",
+    "ADD_SUCCESS": "Product created successfully",
+    "EDIT_SUCCESS": "Product updated successfully",
+    "DELETE_SUCCESS": "Product deleted successfully",
+    "SUCCESS": "Success",
+    "ERROR": "Error"
+  },
+  "LOGIN": {
+    "TITLE": "Login To E-Commerce",
+    "USERNAME": "Username",
+    "PASSWORD": "Password",
+    "LOGIN": "Login",
+    "VALIDATION": {
+      "USERNAME_REQUIRED": "Username is required",
+      "PASSWORD_REQUIRED": "Password is required"
+    }
+  },
+  "LAYOUT": {
+    "HEADER": "E-Commerce Store",
+    "LOGOUT": "Logout"
+  }
+}

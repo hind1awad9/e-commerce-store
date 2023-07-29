@@ -1,0 +1,39 @@
+<div class="m-3">
+  <div>
+    <button
+      *ngFor="let category of categories"
+      mat-fab
+      extended
+      color="primary"
+      class="m-1"
+      (click)="searchByCategory(category)"
+    >
+      {{ category }}
+    </button>
+  </div>
+  <div class="m-3">
+    <mat-card
+      class="inline-block m-3"
+      *ngFor="let product of products"
+      [matTooltip]="product.title"
+    >
+      <mat-card-header>
+        <mat-card-title>{{ product.title | slice : 0 : 20 }}...</mat-card-title>
+        <mat-card-subtitle>{{ product.price }} $</mat-card-subtitle>
+      </mat-card-header>
+      <div class="text-center">
+        <img
+          class="mt-2 mb-2"
+          mat-card-image
+          width="200px"
+          height="200px"
+          [src]="product.image"
+          alt="Photo of product"
+        />
+      </div>
+      <mat-card-content>
+        <p>{{ product.description | slice : 0 : 40 }}...</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

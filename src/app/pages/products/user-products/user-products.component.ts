@@ -3,7 +3,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { Subscription, tap } from 'rxjs';
 
-import * as fromStore from '../../store';
+import * as fromStore from '../../../store';
 import { Product } from 'src/app/models';
 
 @Component({

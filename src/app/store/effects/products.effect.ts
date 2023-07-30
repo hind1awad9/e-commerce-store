@@ -5,12 +5,16 @@ import { catchError, map, of, switchMap, tap } from 'rxjs';
 
 import { ProductsActions } from '../actions/products.action';
 import { ProductService } from 'src/app/services';
+import { ToastrService } from 'ngx-toastr';
+import { TranslateService } from '@ngx-translate/core';
 
 @Injectable()
 export class ProductsEffects {
   constructor(
     private actions$: Actions,
-    private productsService: ProductService
+    private productsService: ProductService,
+    public toastr: ToastrService,
+    private translate: TranslateService
   ) {}
 
   /* ========================= GET_PRODUCTS =================================== */
@@ -72,7 +76,10 @@ export class ProductsEffects {
       this.actions$.pipe(
         ofType(ProductsActions.CreateProductSuccess),
         tap(() => {
-          // this.notificationService.dispatchSuccessMessage(this.translationService.translate('PRODUCT_ADDED'));
+          this.toastr.success(
+            this.translate.instant('PRODUCT.ADD_SUCCESS'),
+            this.translate.instant('PRODUCT.SUCCESS')
+          );
         })
       ),
     { dispatch: false }
@@ -82,10 +89,11 @@ export class ProductsEffects {
     () =>
       this.actions$.pipe(
         ofType(ProductsActions.CreateProductFail),
-        tap(({ statusCode }) => {
-          if (statusCode === 400) {
-            // this.notificationService.dispatchErrorMessage(this.translationService.translate('PRODUCT_NOT_ADDED'));
-          }
+        tap(() => {
+          this.toastr.error(
+            this.translate.instant('PRODUCT.ADD_FAIL'),
+            this.translate.instant('PRODUCT.ERROR')
+          );
         })
       ),
     { dispatch: false }
@@ -109,7 +117,10 @@ export class ProductsEffects {
       this.actions$.pipe(
         ofType(ProductsActions.UpdateProductSuccess),
         tap(() => {
-          // this.notificationService.dispatchSuccessMessage(this.translationService.translate('PRODUCT_UPDATED'));
+          this.toastr.success(
+            this.translate.instant('PRODUCT.EDIT_SUCCESS'),
+            this.translate.instant('PRODUCT.SUCCESS')
+          );
         })
       ),
     { dispatch: false }
@@ -119,10 +130,11 @@ export class ProductsEffects {
     () =>
       this.actions$.pipe(
         ofType(ProductsActions.UpdateProductFail),
-        tap(({ statusCode }) => {
-          if (statusCode === 400) {
-            // this.notificationService.dispatchErrorMessage(this.translationService.translate('PRODUCT_NOT_UPDATED'));
-          }
+        tap(() => {
+          this.toastr.error(
+            this.translate.instant('PRODUCT.EDIT_FAIL'),
+            this.translate.instant('PRODUCT.ERROR')
+          );
         })
       ),
     { dispatch: false }
@@ -145,10 +157,11 @@ export class ProductsEffects {
     () =>
       this.actions$.pipe(
         ofType(ProductsActions.DeleteProductFail),
-        tap(({ statusCode }) => {
-          if (statusCode === 400) {
-            // this.notificationService.dispatchErrorMessage(this.translationService.translate('PRODUCT_NOT_FOUND'));
-          }
+        tap(() => {
+          this.toastr.error(
+            this.translate.instant('PRODUCT.DELETE_FAIL'),
+            this.translate.instant('PRODUCT.ERROR')
+          );
         })
       ),
     { dispatch: false }

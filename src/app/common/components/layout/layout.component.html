@@ -19,9 +19,9 @@
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <div
             [dir]="currentLang === 'ar' ? 'rlt' : 'ltr'"
-            class="align-items-end"
+            class="align-items-end m-2"
           >
-            <button class="btn bg-transparent" (click)="changeLanguage()">
+            <button class="btn btn-outline-warning" (click)="changeLanguage()">
               <span>{{ currentLang === "ar" ? "English" : "عربي" }}</span
               ><i
                 [dir]="currentLang === 'ar' ? 'rlt' : 'ltr'"
@@ -35,7 +35,7 @@
           </div>
         </ul>
 
-        <button class="btn btn-primary" type="button" (click)="logout()">
+        <button class="btn btn-secondary" type="button" (click)="logout()">
           {{ "LAYOUT.LOGOUT" | translate }}
         </button>
       </div>

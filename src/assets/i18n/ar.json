@@ -6,20 +6,26 @@
     "TITLE": "الاسم",
     "PRICE": "السعر",
     "CATEGORY": "الفئة",
+    "SELECT_CATEGORY": "قم بإختيار فئة",
     "DESCRIPTION": "الوصف",
     "SAVE": "حفظ",
     "CLOSE": "إغلاق",
     "ADD_SUCCESS": "تم إضافة المنتج بنجاح",
+    "ADD_FAIL": "فشل إضافة المنتج",
     "EDIT_SUCCESS": "تم تعديل المنتج بنجاح",
+    "EDIT_FAIL": "فشل تعديل المنتج",
     "DELETE_SUCCESS": "تم حذف المنتج بنجاح",
+    "DELETE_FAIL": "فشل حذف المنتج",
     "SUCCESS": "تم بنجاح",
-    "ERROR": "حدث خطأ"
+    "ERROR": "حدث خطأ",
+    "DELETE_MESSAGE": "هل انت متاكد من حذف هذا المنتج؟"
   },
   "LOGIN": {
     "TITLE": "تسجيل الدخول للمتجر",
     "USERNAME": "إسم المستخدم",
     "PASSWORD": "كلمة المرور",
     "LOGIN": "تسجيل الدخول",
+    "LOGIN_SUCCESS": "تم تسجيل الدخول بنجاح",
     "VALIDATION": {
       "USERNAME_REQUIRED": "إسم المستخدم مطلوب",
       "PASSWORD_REQUIRED": "كلمة المرور مطلوبة"

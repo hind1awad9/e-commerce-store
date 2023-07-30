@@ -1,6 +1,9 @@
 <div class="m-3" [dir]="language == 'ar' ? 'rtl' : 'ltr'">
-  <div class="mb-4" style="text-align: right">
-    <button mat-fab extended color="primary" (click)="openCreateDialog(create)">
+  <div
+    class="mb-4"
+    [ngStyle]="{ 'text-align': language == 'ar' ? 'left' : 'right' }"
+  >
+    <button mat-fab extended color="primary" (click)="openCreateDialog()">
       <mat-icon>add</mat-icon>
       {{ "PRODUCT.ADD" | translate }}
     </button>
@@ -65,7 +68,7 @@
               matTooltip="Click to Edit"
               class="iconbutton"
               color="primary"
-              (click)="openDialog(edit, element)"
+              (click)="openUpdateDialog(element)"
             >
               <mat-icon>edit</mat-icon>
             </button>
@@ -80,7 +83,7 @@
               mat-icon-button
               matTooltip="Click to Delete"
               class="iconbutton"
-              (click)="openDialog(delete, element)"
+              (click)="openDeleteDialog(delete, element)"
               color="warn"
             >
               <mat-icon>delete</mat-icon>
@@ -101,91 +104,14 @@
   </div>
 </div>
 
-<ng-template #create>
-  <form [formGroup]="form">
-    <div mat-dialog-title>{{ "PRODUCT.ADD" | translate }}</div>
-    <mat-dialog-content>
-      <label for="title">{{ "PRODUCT.TITLE" | translate }}</label>
-      <input
-        type="text"
-        class="form-control"
-        placeholder="Title"
-        formControlName="title"
-      />
-      <label for="price">{{ "PRODUCT.PRICE" | translate }}</label>
-      <input
-        type="text"
-        class="form-control"
-        placeholder="Price"
-        formControlName="price"
-      />
-      <label for="category">{{ "PRODUCT.CATEGORY" | translate }}</label>
-      <select
-        class="form-select"
-        formControlName="category"
-        aria-label="Default select example"
-      >
-        <option selected>Open this select menu</option>
-        <option *ngFor="let category of categories">{{ category }}</option>
-      </select>
-      <label for="description">{{ "PRODUCT.DESCRIPTION" | translate }}</label>
-      <textarea
-        type="text"
-        rows="4"
-        class="form-control"
-        placeholder="Description"
-        formControlName="description"
-      ></textarea>
-    </mat-dialog-content>
-    <mat-dialog-actions>
-      <button mat-raised-button color="primary" (click)="addProduct()">
-        {{ "PRODUCT.SAVE" | translate }}
-      </button>
-      <button mat-raised-button color="warn" (click)="close()">
-        {{ "PRODUCT.CLOSE" | translate }}
-      </button>
-    </mat-dialog-actions>
-  </form>
-</ng-template>
-
-<ng-template #edit>
-  <form [formGroup]="form">
-    <div mat-dialog-title>{{ "PRODUCT.EDIT_PRODUCT" | translate }}</div>
-    <mat-dialog-content>
-      <label for="title">{{ "PRODUCT.TITLE" | translate }}</label>
-      <input type="text" class="form-control" formControlName="title" />
-      <label for="price">{{ "PRODUCT.PRICE" | translate }}</label>
-      <input type="text" class="form-control" formControlName="price" />
-      <label for="category">{{ "PRODUCT.CATEGORY" | translate }}</label>
-      <input type="text" class="form-control" formControlName="category" />
-      <label for="description">{{ "PRODUCT.DESCRIPTION" | translate }}</label>
-      <textarea
-        rows="4"
-        type="text"
-        class="form-control"
-        formControlName="description"
-      >
-      </textarea>
-    </mat-dialog-content>
-    <mat-dialog-actions>
-      <button mat-raised-button color="primary" (click)="editProduct()">
-        Save
-      </button>
-      <button mat-raised-button color="warn" (click)="close()">
-        {{ "PRODUCT.CLOSE" | translate }}
-      </button>
-    </mat-dialog-actions>
-  </form>
-</ng-template>
-
 <ng-template #delete>
   <div mat-dialog-title>{{ "PRODUCT.DELETE_PRODUCT" | translate }}</div>
   <mat-dialog-content>
-    Are you won't to delete this product?
+    {{ "PRODUCT.DELETE_MESSAGE" | translate }}
   </mat-dialog-content>
   <mat-dialog-actions>
     <button mat-raised-button color="primary" (click)="deleteProduct()">
-      Save
+      {{ "PRODUCT.SAVE" | translate }}
     </button>
     <button mat-raised-button color="warn" (click)="close()">
       {{ "PRODUCT.CLOSE" | translate }}

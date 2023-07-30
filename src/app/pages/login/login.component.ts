@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 
 import { Subscription } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
+import { TranslateService } from '@ngx-translate/core';
 
 import { AuthService } from 'src/app/services';
 
@@ -38,7 +39,8 @@ export class LoginComponent implements OnInit {
     private formBuilder: FormBuilder,
     private router: Router,
     private authService: AuthService,
-    public toastr: ToastrService
+    private toastr: ToastrService,
+    private translate: TranslateService
   ) {
     // redirect to home if already logged in
     if (this.authService.userValue) {
@@ -70,7 +72,10 @@ export class LoginComponent implements OnInit {
     this.authService.login(username, password).subscribe(
       (res) => {
         this.router.navigate(['/']);
-        this.toastr.success('Login success', 'Success');
+        this.toastr.success(
+          this.translate.instant('LOGIN.LOGIN_SUCCESS'),
+          this.translate.instant('PRODUCT.SUCCESS')
+        );
       },
       (err) => {
         this.toastr.error(err, 'Error');

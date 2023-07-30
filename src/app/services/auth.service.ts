@@ -6,6 +6,8 @@ import { BehaviorSubject, Observable, of, throwError } from 'rxjs';
 
 import { environment } from '../../environments/environment';
 import { Role, User } from '../models';
+import { TranslateService } from '@ngx-translate/core';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root',
@@ -25,7 +27,12 @@ export class AuthService {
     },
   ];
 
-  constructor(private httpClient: HttpClient, private router: Router) {
+  constructor(
+    private httpClient: HttpClient,
+    private router: Router,
+    private toastr: ToastrService,
+    private translate: TranslateService
+  ) {
     if (localStorage.getItem('user')) {
       const user = JSON.parse(localStorage.getItem('user') || '');
       this.setUserValue(user);

@@ -31,11 +31,13 @@ import * as fromStore from './store';
 import * as fromAppStore from '../app/common/store';
 import { LayoutComponent } from './common/components/layout/layout.component';
 import { LoginComponent } from './pages/login/login.component';
-import { ProductsListComponent } from './pages/products-list/products-list.component';
 import { HomeComponent } from './pages/home/home.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { UserProductsComponent } from './pages/user-products/user-products.component';
+import { UserProductsComponent } from './pages/products/user-products/user-products.component';
+import { CreateProductComponent } from './pages/products/create-product/create-product.component';
+import { UpdateProductComponent } from './pages/products/update-product/update-product.component';
+import { ProductsListComponent } from './pages/products/products-list/products-list.component';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -49,6 +51,8 @@ export function createTranslateLoader(http: HttpClient) {
     ProductsListComponent,
     UserProductsComponent,
     LayoutComponent,
+    CreateProductComponent,
+    UpdateProductComponent,
   ],
   imports: [
     BrowserModule,
@@ -80,7 +84,7 @@ export function createTranslateLoader(http: HttpClient) {
     MatTooltipModule,
     MatProgressSpinnerModule,
     MatSortModule,
-    ToastrModule.forRoot(),
+    ToastrModule.forRoot({ timeOut: 2000, enableHtml: true }),
     TranslateModule.forRoot({
       defaultLanguage: 'ar',
       loader: {

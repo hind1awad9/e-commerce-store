@@ -6,6 +6,7 @@
     "TITLE": "Title",
     "PRICE": "Price",
     "CATEGORY": "Category",
+    "SELECT_CATEGORY": "Select Category",
     "DESCRIPTION": "Description",
     "SAVE": "Save",
     "CLOSE": "Close",
@@ -13,13 +14,15 @@
     "EDIT_SUCCESS": "Product updated successfully",
     "DELETE_SUCCESS": "Product deleted successfully",
     "SUCCESS": "Success",
-    "ERROR": "Error"
+    "ERROR": "Error",
+    "DELETE_MESSAGE": "Are you sure to delete this product?"
   },
   "LOGIN": {
     "TITLE": "Login To E-Commerce",
     "USERNAME": "Username",
     "PASSWORD": "Password",
     "LOGIN": "Login",
+    "LOGIN_SUCCESS": "Logged in Success",
     "VALIDATION": {
       "USERNAME_REQUIRED": "Username is required",
       "PASSWORD_REQUIRED": "Password is required"

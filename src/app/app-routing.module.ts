@@ -1,13 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { LayoutComponent } from './common/components/layout/layout.component';
-import { LoginComponent } from './pages/login/login.component';
-import { AuthGuard } from './common';
-import { Role } from './models';
-import { HomeComponent } from './pages/home/home.component';
-import { ProductsListComponent } from './pages/products/products-list/products-list.component';
-import { UserProductsComponent } from './pages/products/user-products/user-products.component';
+import { AuthGuard } from './core/guards';
+import {
+  HomeComponent,
+  ProductsListComponent,
+  UserProductsComponent,
+} from './products/components';
+import { LoginComponent } from './auth/components';
+import { LayoutComponent } from './core/components';
+import { Role } from './core/enums';
 
 const routes: Routes = [
   {
@@ -18,7 +20,7 @@ const routes: Routes = [
         path: '',
         component: ProductsListComponent,
         canActivate: [AuthGuard],
-        data: { role: Role.Admin },
+        data: { role: Role.ADMIN },
       },
     ],
   },
@@ -30,7 +32,7 @@ const routes: Routes = [
         path: '',
         component: UserProductsComponent,
         canActivate: [AuthGuard],
-        data: { role: Role.User },
+        data: { role: Role.USER },
       },
     ],
   },

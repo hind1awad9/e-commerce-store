@@ -30,6 +30,8 @@
   },
   "LAYOUT": {
     "HEADER": "E-Commerce Store",
-    "LOGOUT": "Logout"
+    "LOGOUT": "Logout",
+    "AR": "Arabic",
+    "EN": "English"
   }
 }

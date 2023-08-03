@@ -3,8 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { Direction, SupportedLanguage } from 'App/core/enums';
 import { UiDirectionService } from 'App/core/services';
 import { AuthService } from 'App/auth/services';
-import { TranslateService } from '@ngx-translate/core';
-import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-layout',
@@ -20,6 +18,13 @@ export class LayoutComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    /**
+     * Get the System direction.
+     */
+    this.uiDirection();
+  }
+
+  uiDirection() {
     this.uiDirectionService
       .getUiDirection()
       .subscribe((dir) =>
@@ -32,6 +37,7 @@ export class LayoutComponent implements OnInit {
   logout() {
     this.authService.logout();
   }
+
   changeLanguage() {
     const language = localStorage.getItem('language') as SupportedLanguage;
 

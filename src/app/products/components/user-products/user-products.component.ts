@@ -27,6 +27,15 @@ export class UserProductsComponent implements OnInit, OnDestroy {
     /**
      * Get the System products.
      */
+    this.getProducts();
+
+    /**
+     * Get the System categories.
+     */
+    this.getCategories();
+  }
+
+  getProducts() {
     this.subscriptions.add(
       this.fromStore$
         .pipe(
@@ -40,10 +49,8 @@ export class UserProductsComponent implements OnInit, OnDestroy {
         .subscribe()
     );
     this.fromStore$.dispatch(fromStore.GetProducts({}));
-
-    /**
-     * Get the System categories.
-     */
+  }
+  getCategories() {
     this.subscriptions.add(
       this.fromStore$
         .pipe(

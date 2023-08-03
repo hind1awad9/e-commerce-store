@@ -58,6 +58,18 @@ export class ProductFormComponent implements OnInit, OnDestroy {
     /**
      * Get the System categories.
      */
+    this.getCategories();
+  }
+  initForm() {
+    this.form = this.formBuilder.group({
+      title: ['', Validators.required],
+      price: ['', Validators.required],
+      category: ['', Validators.required],
+      description: ['', Validators.required],
+    });
+  }
+
+  getCategories() {
     this.subscriptions.add(
       this.configurationStore$
         .pipe(
@@ -71,14 +83,6 @@ export class ProductFormComponent implements OnInit, OnDestroy {
         .subscribe()
     );
     this.configurationStore$.dispatch(fromStore.SearchCategories({}));
-  }
-  initForm() {
-    this.form = this.formBuilder.group({
-      title: ['', Validators.required],
-      price: ['', Validators.required],
-      category: ['', Validators.required],
-      description: ['', Validators.required],
-    });
   }
   addProduct() {
     this.configurationStore$.dispatch(fromStore.CreateProduct(this.form.value));

@@ -23,4 +23,10 @@ export class UiDirectionService {
   getUiDirection() {
     return this.directionSubject;
   }
+
+  static getCurrentDirection(): Direction {
+    return localStorage.getItem('language') == SupportedLanguage.AR
+      ? Direction.RTL
+      : Direction.LTR;
+  }
 }

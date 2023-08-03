@@ -11,7 +11,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { Product } from 'App/products/models';
 import * as fromStore from '../../store';
 import { ProductFormComponent } from '../product-form/product-form.component';
-import { Direction, SupportedLanguage } from 'App/core/enums';
+import { UiDirectionService } from 'App/core/services';
 
 @Component({
   selector: 'app-products-list',
@@ -39,11 +39,6 @@ export class ProductsListComponent implements OnInit, OnDestroy {
    */
   subscriptions = new Subscription();
 
-  // getter lang
-  get language() {
-    return localStorage.getItem('language');
-  }
-
   constructor(
     public dialog: MatDialog,
     private fromStore$: Store<fromStore.ConfigurationsState>,
@@ -55,6 +50,15 @@ export class ProductsListComponent implements OnInit, OnDestroy {
     /**
      * Get the System products.
      */
+    this.getProducts();
+
+    /**
+     * Display toaster after delete product completed.
+     */
+    this.deletedProduct();
+  }
+
+  getProducts() {
     this.subscriptions.add(
       this.fromStore$
         .pipe(
@@ -69,10 +73,9 @@ export class ProductsListComponent implements OnInit, OnDestroy {
         .subscribe()
     );
     this.fromStore$.dispatch(fromStore.GetProducts({}));
+  }
 
-    /**
-     * Display toaster after delete product completed.
-     */
+  deletedProduct() {
     this.subscriptions.add(
       this.fromStore$
         .pipe(
@@ -94,15 +97,14 @@ export class ProductsListComponent implements OnInit, OnDestroy {
   openCreateDialog() {
     this.dialog.open(ProductFormComponent, {
       width: '40%',
-      direction:
-        this.language == SupportedLanguage.AR ? Direction.RTL : Direction.LTR,
+      direction: UiDirectionService.getCurrentDirection(),
     });
   }
+
   openUpdateDialog(product: Product) {
     this.dialog.open(ProductFormComponent, {
       width: '30%',
-      direction:
-        this.language == SupportedLanguage.AR ? Direction.RTL : Direction.LTR,
+      direction: UiDirectionService.getCurrentDirection(),
       data: product,
     });
   }
@@ -111,8 +113,7 @@ export class ProductsListComponent implements OnInit, OnDestroy {
     this.productId = product.id;
     this.dialog.open(templateRef, {
       width: '25%',
-      direction:
-        this.language == SupportedLanguage.AR ? Direction.RTL : Direction.LTR,
+      direction: UiDirectionService.getCurrentDirection(),
     });
   }
 

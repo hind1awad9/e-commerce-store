@@ -17,7 +17,7 @@ export class ProductFormComponent implements OnInit, OnDestroy {
   /**
    * The product form.
    */
-  form: FormGroup;
+  productForm: FormGroup;
 
   /**
    * The current edited product.
@@ -52,7 +52,7 @@ export class ProductFormComponent implements OnInit, OnDestroy {
 
     if (this.data) {
       this.product = this.data;
-      this.form.patchValue({ ...this.data });
+      this.productForm.patchValue({ ...this.data });
     }
 
     /**
@@ -61,7 +61,7 @@ export class ProductFormComponent implements OnInit, OnDestroy {
     this.getCategories();
   }
   initForm() {
-    this.form = this.formBuilder.group({
+    this.productForm = this.formBuilder.group({
       title: ['', Validators.required],
       price: ['', Validators.required],
       category: ['', Validators.required],
@@ -85,19 +85,21 @@ export class ProductFormComponent implements OnInit, OnDestroy {
     this.configurationStore$.dispatch(fromStore.SearchCategories({}));
   }
   addProduct() {
-    this.configurationStore$.dispatch(fromStore.CreateProduct(this.form.value));
+    this.configurationStore$.dispatch(
+      fromStore.CreateProduct(this.productForm.value)
+    );
     this.close();
   }
 
   editProduct() {
     this.configurationStore$.dispatch(
       fromStore.UpdateProduct({
-        ...this.form.value,
+        ...this.productForm.value,
         id: this.product.id,
-        title: this.form.value.title,
-        price: this.form.value.price,
-        category: this.form.value.category,
-        description: this.form.value.description,
+        title: this.productForm.value.title,
+        price: this.productForm.value.price,
+        category: this.productForm.value.category,
+        description: this.productForm.value.description,
       })
     );
     this.close();
@@ -105,7 +107,7 @@ export class ProductFormComponent implements OnInit, OnDestroy {
 
   close() {
     this.dialogRef.close();
-    this.form.reset();
+    this.productForm.reset();
   }
 
   /**

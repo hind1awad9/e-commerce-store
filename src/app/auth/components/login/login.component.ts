@@ -16,7 +16,7 @@ import { User } from 'App/auth/models';
   styleUrls: ['./login.component.sass'],
 })
 export class LoginComponent implements OnInit {
-  form: FormGroup;
+  loginForm: FormGroup;
   isLoading = false;
   isFormSubmitted = false;
   error = '';
@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
 
   // convenience getter for easy access to form fields
   get formControls() {
-    return this.form.controls;
+    return this.loginForm.controls;
   }
 
   constructor(
@@ -50,7 +50,7 @@ export class LoginComponent implements OnInit {
   }
 
   initForm() {
-    this.form = this.formBuilder.group({
+    this.loginForm = this.formBuilder.group({
       username: ['', Validators.required],
       password: ['', Validators.required],
     });
@@ -60,12 +60,12 @@ export class LoginComponent implements OnInit {
     this.isFormSubmitted = true;
 
     // stop here if form is invalid
-    if (this.form?.invalid) {
+    if (this.loginForm?.invalid) {
       return;
     }
 
     this.isLoading = true;
-    const { username, password } = this.form.value;
+    const { username, password } = this.loginForm.value;
 
     this.authService.login(username, password).subscribe(
       (user: User) => {

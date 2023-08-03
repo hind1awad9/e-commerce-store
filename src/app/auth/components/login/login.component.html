@@ -2,7 +2,7 @@
   <div class="row align-items-center h-100 m-auto p-5">
     <div class="mx-autocol-6 col-md-8 col-lg-6 p-3">
       <!-- Form -->
-      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <h1>{{ "LOGIN.TITLE" | translate }}</h1>
         <div class="form-group">
           <label for="username">{{ "LOGIN.USERNAME" | translate }}</label>

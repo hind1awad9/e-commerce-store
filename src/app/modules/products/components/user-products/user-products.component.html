@@ -16,13 +16,11 @@
 
   <!-- Products Section -->
   <div class="m-3 text-center">
-    <mat-card
-      class="inline-block m-3"
-      *ngFor="let product of products"
-      [matTooltip]="product.title"
-    >
+    <mat-card class="inline-block m-3" *ngFor="let product of products">
       <mat-card-header>
-        <mat-card-title>{{ product.title | slice : 0 : 20 }}...</mat-card-title>
+        <mat-card-title [matTooltip]="product.title"
+          >{{ product.title | slice : 0 : 20 }}...</mat-card-title
+        >
         <mat-card-subtitle>{{ product.price }} $</mat-card-subtitle>
       </mat-card-header>
       <div class="text-center">
@@ -36,7 +34,9 @@
         />
       </div>
       <mat-card-content>
-        <p>{{ product.description | slice : 0 : 40 }}...</p>
+        <p [matTooltip]="product.description">
+          {{ product.description | slice : 0 : 40 }}...
+        </p>
       </mat-card-content>
     </mat-card>
   </div>

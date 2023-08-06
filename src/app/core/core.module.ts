@@ -27,7 +27,7 @@ import { SharedModule } from 'App/shared/shared.module';
     SharedModule,
     ToastrModule.forRoot({ timeOut: 2000, enableHtml: true }),
     TranslateModule.forRoot({
-      defaultLanguage: SupportedLanguage.AR,
+      defaultLanguage: SupportedLanguage.EN,
       loader: {
         provide: TranslateLoader,
         useFactory: createTranslateLoader,

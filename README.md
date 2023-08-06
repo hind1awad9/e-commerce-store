@@ -21,10 +21,18 @@ npm install -g @angular/cli
 
 ```
 
+## Install PNPM
+
+[PNPM](https://pnpm.io/)
+
+```
+npm i -g pnpm
+```
+
 ## Install required dependencies
 
 ```
-npm install
+pnpm install
 ```
 
 ## Development server

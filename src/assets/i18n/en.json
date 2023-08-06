@@ -6,6 +6,9 @@
     "TITLE": "Title",
     "PRICE": "Price",
     "CATEGORY": "Category",
+    "IMAGE": "Image",
+    "IMAGE_PLACEHOLDER": "Image url",
+    "RATE": "Rate",
     "SELECT_CATEGORY": "Select Category",
     "DESCRIPTION": "Description",
     "SAVE": "Save",
@@ -15,7 +18,8 @@
     "DELETE_SUCCESS": "Product deleted successfully",
     "SUCCESS": "Success",
     "ERROR": "Error",
-    "DELETE_MESSAGE": "Are you sure to delete this product?"
+    "DELETE_MESSAGE": "Are you sure to delete this product?",
+    "NO_PRODUCTS": "No products yet"
   },
   "LOGIN": {
     "TITLE": "Login To E-Commerce",

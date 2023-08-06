@@ -5,13 +5,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
-import { ProductsModule } from './products';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { HttpClientModule } from '@angular/common/http';
 
-import { MatChipsModule } from '@angular/material/chips';
-import { AuthModule } from './auth';
+import { ProductsModule } from './modules/products';
+import { AuthModule } from './modules/auth';
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -22,7 +22,6 @@ import { AuthModule } from './auth';
     NgbModule,
     ProductsModule,
     AuthModule,
-    MatChipsModule,
     HttpClientModule,
   ],
   providers: [],

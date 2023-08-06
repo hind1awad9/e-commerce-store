@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Direction, SupportedLanguage } from 'App/core/enums';
 import { UiDirectionService } from 'App/core/services';
-import { AuthService } from 'App/auth/services';
+import { AuthService } from 'App/modules/auth/services';
 
 @Component({
   selector: 'app-layout',
@@ -10,6 +10,9 @@ import { AuthService } from 'App/auth/services';
   styleUrls: ['./layout.component.sass'],
 })
 export class LayoutComponent implements OnInit {
+  /**
+   * Get the current language.
+   */
   currentLang: SupportedLanguage;
 
   constructor(
@@ -19,11 +22,14 @@ export class LayoutComponent implements OnInit {
 
   ngOnInit() {
     /**
-     * Get the System direction.
+     * Get the system direction.
      */
     this.uiDirection();
   }
 
+  /**
+   * Get the system direction.
+   */
   uiDirection() {
     this.uiDirectionService
       .getUiDirection()
@@ -34,10 +40,16 @@ export class LayoutComponent implements OnInit {
       );
   }
 
+  /**
+   * Logout from the system.
+   */
   logout() {
     this.authService.logout();
   }
 
+  /**
+   * Change current language.
+   */
   changeLanguage() {
     const language = localStorage.getItem('language') as SupportedLanguage;
 

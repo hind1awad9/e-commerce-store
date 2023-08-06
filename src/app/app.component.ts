@@ -20,7 +20,7 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.currentLang =
       (localStorage.getItem('language') as SupportedLanguage) ||
-      SupportedLanguage.AR;
+      SupportedLanguage.EN;
 
     this.uiDirectionService.setUiDirection(this.currentLang);
 

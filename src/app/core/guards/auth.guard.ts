@@ -8,7 +8,7 @@ import {
 
 import { Observable } from 'rxjs';
 
-import { AuthService } from 'App/auth/services';
+import { AuthService } from 'App/modules/auth/services';
 
 @Injectable({ providedIn: 'root' })
 export class AuthGuard {

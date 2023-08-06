@@ -22,6 +22,8 @@
     "@angular/router": "^16.1.0",
     "@ng-bootstrap/ng-bootstrap": "^15.1.0",
     "@ngrx/data": "^16.1.0",
+    "@ngrx/effects": "^16.1.0",
+    "@ngrx/store": "^16.1.0",
     "@ngx-translate/core": "^15.0.0",
     "@ngx-translate/http-loader": "^8.0.0",
     "@popperjs/core": "^2.11.8",

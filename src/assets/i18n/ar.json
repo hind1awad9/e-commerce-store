@@ -6,6 +6,9 @@
     "TITLE": "الاسم",
     "PRICE": "السعر",
     "CATEGORY": "الفئة",
+    "IMAGE": "الصورة",
+    "IMAGE_PLACEHOLDER": "رابط الصورة",
+    "RATE": "التقييم",
     "SELECT_CATEGORY": "قم بإختيار فئة",
     "DESCRIPTION": "الوصف",
     "SAVE": "حفظ",
@@ -18,7 +21,8 @@
     "DELETE_FAIL": "فشل حذف المنتج",
     "SUCCESS": "تم بنجاح",
     "ERROR": "حدث خطأ",
-    "DELETE_MESSAGE": "هل انت متاكد من حذف هذا المنتج؟"
+    "DELETE_MESSAGE": "هل انت متاكد من حذف هذا المنتج؟",
+    "NO_PRODUCTS": "لا يوجد منتجات"
   },
   "LOGIN": {
     "TITLE": "تسجيل الدخول للمتجر",

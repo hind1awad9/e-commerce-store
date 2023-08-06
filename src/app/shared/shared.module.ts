@@ -14,8 +14,11 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatInputModule } from '@angular/material/input';
 
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule, NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateModule } from '@ngx-translate/core';
 
 /**
@@ -42,6 +45,10 @@ import { TranslateModule } from '@ngx-translate/core';
     MatTooltipModule,
     MatProgressSpinnerModule,
     MatSortModule,
+    NgbRatingModule,
+    MatFormFieldModule,
+    MatAutocompleteModule,
+    MatInputModule,
   ],
   exports: [
     FormsModule,
@@ -61,6 +68,10 @@ import { TranslateModule } from '@ngx-translate/core';
     MatTooltipModule,
     MatProgressSpinnerModule,
     MatSortModule,
+    NgbRatingModule,
+    MatFormFieldModule,
+    MatAutocompleteModule,
+    MatInputModule,
   ],
 })
 export class SharedModule {}

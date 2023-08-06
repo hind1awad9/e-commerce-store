@@ -2,14 +2,15 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AuthGuard } from './core/guards';
+
+import { LayoutComponent } from './core/components';
+import { Role } from './core/enums';
 import {
   HomeComponent,
   ProductsListComponent,
   UserProductsComponent,
-} from './products/components';
-import { LoginComponent } from './auth/components';
-import { LayoutComponent } from './core/components';
-import { Role } from './core/enums';
+} from './modules/products/components';
+import { LoginComponent } from './modules/auth/components/login/login.component';
 
 const routes: Routes = [
   {

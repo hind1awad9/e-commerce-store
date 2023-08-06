@@ -7,7 +7,7 @@
     </button>
   </div>
 
-  <div class="example-container mat-elevation-z8" *ngIf="products.length">
+  <div class="example-container mat-elevation-z8" *ngIf="products">
     <div class="example-table-container">
       <table
         mat-table
@@ -145,7 +145,7 @@
 <!-- delete product ends -->
 
 <!-- no items template starts -->
-<div class="m-5" style="text-align: center" *ngIf="!products.length">
+<div class="m-5" style="text-align: center" *ngIf="!products">
   <p-card [style]="{ background: 'lightblue' }">
     <h3>{{ "PRODUCT.NO_PRODUCTS" | translate }}</h3>
   </p-card>
